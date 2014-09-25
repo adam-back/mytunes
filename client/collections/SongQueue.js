@@ -10,12 +10,14 @@ var SongQueue = Songs.extend({
       }
     });
 
-
-
+    this.on('remove', function(song){
+      if(this.at(0) !== song && this.at(0) !== undefined) {
+        this.playFirst();
+      }
+    });
   },
 
   playFirst: function() {
-
 
     this.at(0).play();
   }
