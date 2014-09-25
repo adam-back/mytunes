@@ -5,7 +5,7 @@ var SongQueue = Songs.extend({
 
     // this.on('play', this.playFirst, this);
     this.on('add', this.enqueue, this);
-    // this.on('remove', this.dequeue, this);
+    this.on('dequeue', this.dequeue, this);
     // this.on('ended', this.ended, this);
 
     // Songs.prototype.initialize.apply(this, arguments);
@@ -31,6 +31,9 @@ var SongQueue = Songs.extend({
   },
 
   //dequeue:
+  dequeue: function(song) {
+    this.remove(song);
+  },
 
   //ended
 
