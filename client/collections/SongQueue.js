@@ -2,7 +2,10 @@
 var SongQueue = Songs.extend({
 
   initialize: function(){
-    Songs.prototype.initialize.apply(this, arguments);
-  }
+    // Songs.prototype.initialize.apply(this, arguments);
 
+  },
+
+  playFirst: function(){}
+  //keep here at all costs
 });
