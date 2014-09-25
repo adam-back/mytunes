@@ -6,9 +6,7 @@ var PlayerView = Backbone.View.extend({
   el: '<audio controls autoplay />',
 
    initialize: function() {
-      this.on('remove', function(song) {
-        // if(song === )
-      })
+
   },
 
   setSong: function(song){
