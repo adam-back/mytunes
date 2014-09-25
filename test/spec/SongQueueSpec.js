@@ -21,7 +21,7 @@ describe('SongQueue', function() {
 
   describe('when a song is added', function() {
     describe('when it is the only song in the song queue', function() {
-      xit('plays it', function() {
+      it('plays it', function() {
         var songQueue = new SongQueue();
         songQueue.add(songData1);
         expect(playSpy).to.have.been.called;
@@ -66,9 +66,11 @@ describe('SongQueue', function() {
 
   describe('when a song is dequeued', function() {
     it('removes the song', function() {
-      removeSpy = sinon.spy(SongQueue.prototype, 'remove');
+      removeSpy = sinon.spy(SongQueue.prototype.remove);
       var songQueue = new SongQueue(songData1);
       songQueue.at(0).dequeue();
+      // console.log(songQueue);
+      // expect(songQueue.at(0)).to.not.exist;
       expect(removeSpy).to.have.been.called;
       SongQueue.prototype.remove.restore();
     });
