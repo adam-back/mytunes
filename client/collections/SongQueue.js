@@ -2,35 +2,17 @@
 var SongQueue = Songs.extend({
 
   initialize: function(){
-
-    // this.on('play', this.playFirst, this);
     this.on('add', this.enqueue, this);
     this.on('dequeue', this.dequeue, this);
-    // this.on('ended', this.ended, this);
-
-    // Songs.prototype.initialize.apply(this, arguments);
-
-    // this.on('add', function(song){
-    //   if(this.at(0) === song) {
-    //     this.playFirst();
-    //   }
-    // });
-
-    // this.on('remove', function(song){
-    //   if(this.at(0) !== song && this.at(0) !== undefined) {
-    //     this.playFirst();
-    //   }
-    // });
+    this.on('ended', this.ended, this);
   },
 
-  //enqueue:
   enqueue: function(song) {
     if(this.length === 1){
       this.playFirst();
     }
   },
 
-  //dequeue:
   dequeue: function(song) {
     if(this.at(0) === song) {
       this.remove(song);
@@ -38,10 +20,11 @@ var SongQueue = Songs.extend({
     } else {
       this.remove(song);
     }
-
   },
 
-  //ended
+  ended: function(song) {
+    this.dequeue(song);
+  },
 
   playFirst: function() {
     if(this.at(0)) {
