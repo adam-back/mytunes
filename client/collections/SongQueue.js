@@ -32,7 +32,12 @@ var SongQueue = Songs.extend({
 
   //dequeue:
   dequeue: function(song) {
-    this.remove(song);
+    if(this.at(0) === song) {
+      this.remove(song);
+      this.playFirst();
+    } else {
+      this.remove(song);
+    }
   },
 
   //ended
