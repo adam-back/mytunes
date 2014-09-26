@@ -38,14 +38,22 @@ var SongQueue = Songs.extend({
     } else {
       this.remove(song);
     }
+
   },
 
   //ended
 
   playFirst: function() {
-    this.at(0).play();
-  }
+    if(this.at(0)) {
+      this.at(0).play();
+    } else {
+      this.stopPlaying();
+    }
+  },
 
+  stopPlaying: function() {
+    this.trigger('stop');
+  }
 
 });
 
